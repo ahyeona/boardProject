@@ -8,6 +8,18 @@ const boardRoute = require("./routes/boards");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+const session = require("express-session");
+
+const {sessionStore} = require("./models/config");
+
+app.use(session({
+	key: 'session_cookie_name',
+	secret: 'session_cookie_secret',
+	store: sessionStore,
+	resave: false,
+	saveUninitialized: false
+}));
+
 app.use(express.urlencoded({extended:false}));
 app.use("/users", express.static(path.join(__dirname, "public", "users")));
 

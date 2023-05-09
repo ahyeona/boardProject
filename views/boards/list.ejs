@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>게시판 목록</title>
 </head>
 <body>
-    <p>리스트</p>
+    <table>
+        <tr>
+            <th>게시글번호</th>
+            <th>제목</th>
+            <th>작성일</th>
+            <th>작성자</th>
+        </tr>
+
+        <% data.forEach((el, index) => {%>
+            <tr>
+                <td><%= el.id %></td>
+                <td><a href="/boards/detail/<%= el.id %>"><%= el.title %></a></td>
+                <td><%= el.time %></td>
+                <td><%= el.writer %></td>
+            </tr>
+
+        <% });  %>
+    </table>
+
 </body>
 </html>

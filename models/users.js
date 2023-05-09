@@ -1,16 +1,11 @@
-const mysql = require("./config");
+const {mysql} = require("./config");
 
 const users = {
     // 이메일 중복확인
     emailCheck: async (email) => {
         try {
             // 해당 이메일 값을 가진 유저 정보 반환
-            const data = await mysql.query("SELECT * FROM User WHERE email = ?", [email]);
-            // if (data[0].length == 0) {
-            //     console.log("000000");
-            // } else {
-            //     console.log(data[0]);
-            // }
+            const [data] = await mysql.query("SELECT * FROM User WHERE email = ?", [email]);
             return data[0];
         } catch (error) {
             console.log("idcheck에러", error);
@@ -21,7 +16,7 @@ const users = {
     nickCheck: async (nickname) => {
         try {
             // 해당 닉네임 값을 가진 유저 정보 반환
-            const data = await mysql.query("SELECT * FROM User WHERE nickname = ?", [nickname]);
+            const [data] = await mysql.query("SELECT * FROM User WHERE nickname = ?", [nickname]);
             return data[0];
         } catch (error) {
             console.log("nickcheck에러", error);
@@ -40,8 +35,7 @@ const users = {
     // 아이디 비밀번호 확인
     loginUser: async (email, password) => {
         try {
-            const data = await mysql.query("SELECT * FROM User WHERE email = ? AND password = ?", [email, password]);
-            // console.log(data[0]);
+            const [data] = await mysql.query("SELECT * FROM User WHERE email = ? AND password = ?", [email, password]);
             return data[0];
         } catch (error) {
             console.log("loginUser에러", error);

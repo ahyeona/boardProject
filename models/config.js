@@ -1,4 +1,6 @@
 const mysql2 = require("mysql2/promise");
+const session = require("express-session");
+const MySQLStore = require('express-mysql-session')(session);
 
 const mysql = mysql2.createPool({
     user:"root",
@@ -7,4 +9,6 @@ const mysql = mysql2.createPool({
     multipleStatements:true
 });
 
-module.exports = mysql;
+const sessionStore = new MySQLStore({},mysql);
+
+module.exports = {mysql, sessionStore};

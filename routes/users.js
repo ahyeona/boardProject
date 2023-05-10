@@ -66,6 +66,17 @@ router.post("/signup", async (req, res) => {
     }
 });
 
+router.get("/logout", (req, res) => {
+    req.session.destroy((error) => {
+        if (error) {
+            console.log("로그아웃err",error);
+            res.redirect("/boards/");
+        } else {
+            res.redirect("/users/login/");
+        }
+    });
+});
+
 // router.post("/emailcheck", async (req, res) => {
 //     try {
 //         const data = await users.EmailCheck(req, res);

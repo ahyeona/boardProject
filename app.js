@@ -22,6 +22,7 @@ app.use(session({
 
 app.use(express.urlencoded({extended:false}));
 app.use("/users", express.static(path.join(__dirname, "public", "users")));
+app.use("/boards", express.static(path.join(__dirname, "public", "boards")));
 
 app.use("/users", userRoute);
 app.use("/boards", boardRoute);

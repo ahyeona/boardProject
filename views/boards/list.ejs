@@ -9,14 +9,16 @@
 </head>
 
 <body>
-    <%- include('../../public/header') %>
+    <%- include('../header') %>
 
-        <a href="/boards/insert">작성</a>
-        <div class="main">
-            <div class="main-item list">
+    <div class="main">
+        <div class="main-item list">
+            <div class="f-right">
+                <a class="btn a-btn" href="/boards/insert">작성</a>
+            </div>
             <table>
                 <tr>
-                    <th>게시글번호</th>
+                    <th>글번호</th>
                     <th>제목</th>
                     <th>작성일</th>
                     <th>작성자</th>

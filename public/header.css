@@ -5,18 +5,15 @@
     font-style: normal;
 }
 
-/* .main-item .list {
-
-} */
+body {
+    background-color: gray;
+}
 
 .main {
     width: 80vw;
-    height: 60vh;
+    min-height: 60vh;
     margin: 0 auto;
-    /* display: block; */
     text-align: center;
-    /* display: flex;
-    justify-content: center; */
     background-color: #001f00e1;
     display: flex;
     color: white;
@@ -29,20 +26,51 @@
 
 .main-item {
     margin: auto;
-
+    width: 60vw;
+    padding: 14px;
 }
 
-input {
+.btn {
+    width: 70px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font-family: 'KCCChassam';
+    font-size: 16px;
+}
+
+.a-btn {
+    width: 50px;
+    height: 36px;
+    line-height: 36px;
+    display: inline-block;
+    text-align: center;
+}
+
+.main-item .list {
+    width: 100%;
+}
+
+input,
+textarea {
     background-color: #001f00e1;
     border: none;
     border-bottom: 3px solid white;
     color: white;
+
+    font-family: 'KCCChassam';
+}
+
+textarea {
+    resize: none;
 }
 
 table {
     /* vertical-align: center; */
     text-align: center;
-    width: 1000px;
+    width: 100%;
     margin: auto;
     /* background-color: azure; */
 }
@@ -63,10 +91,12 @@ td {
     width: 80%;
     margin: auto;
     color: black;
+    font-family: 'KCCChassam';
+    font-size: 24px;
 }
 
 .header div {
-    margin-right: 4px;
+    margin-right: 20px;
 }
 
 a {
@@ -76,6 +106,19 @@ a {
 
 .comment-div {
     display: flex;
+    text-align: left;
+}
+
+.comment-div div:nth-child(1) {
+    width: 65%;
+}
+
+.comment-div div:nth-child(2) {
+    width: 20%;
+}
+
+.comment-div div:nth-child(3) {
+    width: 15%;
 }
 
 .comment-div div {
@@ -88,26 +131,32 @@ a {
     overflow: auto;
 }
 
-.f-left {
+.f-right {
+    justify-content: flex-end;
     display: flex;
 }
 
-.f-left div {
+.f-right div {
     margin-right: 10px;
 }
 
 .fs-small {
-    font-size : 20px;
+    font-size: 20px;
 }
 
 .fs-big {
-    font-size : 30px;
+    font-size: 30px;
 }
 
 .f-center {
     text-align: left;
 }
 
-.title {
-    margin-bottom: 100px;
+.m-bottom {
+    margin-bottom: 50px;
+}
+
+button img {
+    width: 24px;
+    height: 24px;
 }

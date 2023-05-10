@@ -10,19 +10,25 @@
 </head>
 
 <body>
-    <%- include('../../public/header') %>
+    <%- include('../header') %>
 
         <div class="main">
-            <form method="post">
-                <label for="">이메일</label>
-                <input type="text" name="email">
-                <!-- <input type="text" name="email" required > -->
-                <label for="">비밀번호</label>
-                <!-- <input type="text" name="password" required > -->
-                <input type="text" name="password">
-                <button id="loginBtn">로그인</button>
-            </form>
-            <a href="/users/signup">회원가입</a>
+            <div class="main-item">
+                <form method="post">
+                    <div>
+                        <label for="">이메일</label>
+                        <input type="text" name="email" required>
+                    </div>
+                    <!-- <input type="text" name="email" required > -->
+                    <div>
+                        <label for="">비밀번호</label>
+                        <!-- <input type="text" name="password" required > -->
+                        <input type="text" name="password" required>
+                    </div>
+                    <button id="loginBtn" class="btn">로그인</button>
+                </form>
+                <a href="/users/signup" class="btn a-btn">회원가입</a>
+            </div>
         </div>
 </body>
 <script src="/users/login.js"></script>

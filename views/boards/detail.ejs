@@ -10,16 +10,16 @@
 </head>
 
 <body>
-    <%- include('../../public/header') %>
+    <%- include('../header') %>
         <div class="main">
             <div class="main-item">
-                <div class="title">
+                <div>
                     <!-- 제목 -->
-                    <h1>
+                    <h2>
                         <%= data.title %>
-                    </h1>
+                    </h2>
                 </div>
-                <div class="f-left fs-small">
+                <div class="f-right fs-small m-bottom">
                     <div>
                         작성자
                     </div>
@@ -50,34 +50,42 @@
                             <input type="hidden" name="user_id" value="<%= user.id %>">
                             <% } %>
                                 <input type="hidden" name="board_id" value="<%= data.id %>">
+                                <div class="btns-div m-bottom">
                                 <% if(user !=null && likebool==true) { %>
-                                    <button id="alreadyLikeBtn">
+                                    <button id="alreadyLikeBtn" class="btn">
+                                        <img src="/img/like.png" alt="하트이모티콘">
                                         <%= data.likes %>
                                     </button>
                                     <% } else { %>
-                                        <button id="likeBtn">
+                                        <button id="likeBtn" class="btn">
+                                            <img src="/img/like_empty.png" alt="하트이모티콘">
                                             <%= data.likes %>
                                         </button>
                                         <% } %>
+
+                                        <div class="edit-delete-btns">
+                                        <% if(user !=null && user.nickname==data.writer){ %>
+                                            <!-- 수정버튼 -->
+                                            <a class="btn a-btn" href="/boards/update/<%= data.id %>">수정</a>
+                                            <!-- 삭제버튼 -->
+                                            <a class="btn a-btn" href="/boards/delete/<%= data.id %>">삭제</a>
+                                            <% } %>
+                                        </div>
+                                </div>
                     </form>
                 </div>
                 <div>
-                    <% if(user !=null && user.nickname==data.writer){ %>
-                        <!-- 수정버튼 -->
-                        <a href="/boards/update/<%= data.id %>">수정</a>
-                        <!-- 삭제버튼 -->
-                        <a href="/boards/delete/<%= data.id %>">삭제</a>
-                        <% } %>
+
                 </div>
                 <div>
                     <!-- 댓글 등록 -->
                     <form action="/boards/add_comment" method="post">
                         <input type="hidden" name="board_id" value="<%= data.id %>">
-                        <label for="">내용</label>
-                        <input type="text" name="content">
-                        <label for="">작성자</label>
-                        <input type="text" name="name">
-                        <button>댓글등록</button>
+                        <label class="fs-small">댓글</label>
+                        <input type="text" name="content" required>
+                        <label class="fs-small">작성자</label>
+                        <input type="text" name="name" required>
+                        <button class="btn">댓글등록</button>
                     </form>
                 </div>
                 <div class="comment-list">
@@ -88,10 +96,10 @@
                                 <%= el.content %>
                             </div>
                             <!-- 댓글작성자 -->
-                            <div>
+                            <div class="fs-small">
                                 <%= el.name %>
                             </div>
-                            <div>
+                            <div class="fs-small">
                                 <!-- 댓글작성시간 -->
                                 <%= el.time %>
                             </div>

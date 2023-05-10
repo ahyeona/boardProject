@@ -1,7 +1,28 @@
-#alreadyLikeBtn {
+/* #alreadyLikeBtn {
     background-color: gray;
 }
 
 #likeBtn {
     background-color: red;
+} */
+
+.btns-div {
+    display: flex;
+    position: relative;
 }
+
+.btns-div>button {
+    margin: auto;
+}
+
+.edit-delete-btns {
+    position: absolute;
+    right: 0;
+}
+
+/* .edit-delete-btns a {
+    width: 50px;
+    height: 36px;
+    line-height: 34px;
+    display: inline-block;
+} */

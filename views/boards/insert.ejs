@@ -9,18 +9,26 @@
 </head>
 
 <body>
-    <%- include('../../public/header') %>
+    <%- include('../header') %>
 
         <div class="main">
-            <form method="post">
-                <label for="">제목</label>
-                <input type="text" name="title">
-                <label for="">내용</label>
-                <textarea type="text" name="content"></textarea>
-                <label for="">작성자</label>
-                <input type="text" name="writer" value="<%= user.nickname %>" readonly>
-                <button>작성</button>
-            </form>
+            <div class="main-item">
+                <form method="post">
+                    <div>
+                        <label for="">제목</label>
+                        <input type="text" name="title" required>
+                    </div>
+                    <div>
+                        <label for="">내용</label>
+                        <textarea type="text" name="content" required></textarea>
+                    </div>
+                    <div>
+                        <label for="">작성자</label>
+                        <input type="text" name="writer" value="<%= user.nickname %>" readonly>
+                    </div>
+                    <button class="btn">작성</button>
+                </form>
+            </div>
         </div>
 </body>
 

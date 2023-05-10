@@ -10,20 +10,28 @@
 </head>
 
 <body>
-    <%- include('../../public/header') %>
+    <%- include('../header') %>
         <div class="main">
-            <form method="post">
-                <label for="">이메일</label>
-                <input id="email" type="text" name="email">
-                <!-- <div id="emailCheckBtn">중복확인</div> -->
-                <!-- <a id="emailCheckBtn" href="/users/emailcheck">중복확인</a> -->
-                <label for="">비밀번호</label>
-                <input type="text" name="password">
-                <label for="">닉네임</label>
-                <!-- <a>중복확인</a> -->
-                <input type="text" name="nickname">
-                <button id="signupBtn">회원가입</button>
-            </form>
+            <div class="main-item">
+                <form method="post">
+                    <div>
+                        <label for="">이메일</label>
+                        <input id="email" type="text" name="email" required>
+                    </div>
+                    <!-- <div id="emailCheckBtn">중복확인</div> -->
+                    <!-- <a id="emailCheckBtn" href="/users/emailcheck">중복확인</a> -->
+                    <div>
+                        <label for="">비밀번호</label>
+                        <input type="text" name="password" required>
+                    </div>
+                    <div>
+                        <label for="">닉네임</label>
+                        <!-- <a>중복확인</a> -->
+                        <input type="text" name="nickname" required>
+                    </div>
+                    <button id="signupBtn" class="btn">회원가입</button>
+                </form>
+            </div>
         </div>
 </body>
 <script src="/users/signup.js"></script>

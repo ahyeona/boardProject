@@ -9,18 +9,26 @@
 </head>
 
 <body>
-    <%- include('../../public/header') %>
+    <%- include('../header') %>
         <div class="main">
-            <form method="post">
-                <input type="hidden" name="id" value="<%= data.id %>">
-                <label for="">제목</label>
-                <input type="text" name="title" value="<%= data.title %>">
-                <label for="">내용</label>
-                <input type="text" name="content" value="<%= data.content %>">
-                <label for="">작성자</label>
-                <input type="text" name="writer" value="<%= data.writer %>" disabled>
-                <button>작성</button>
-            </form>
+            <div class="main-item">
+                <form method="post">
+                    <input type="hidden" name="id" value="<%= data.id %>">
+                    <div>
+                    <label for="">제목</label>
+                    <input type="text" name="title" value="<%= data.title %>" required>
+                </div>
+            <div>
+                    <label for="">내용</label>
+                    <textarea name="content" required><%= data.content %></textarea>
+                <div>
+                <div>
+                    <label for="">작성자</label>
+                    <input type="text" name="writer" value="<%= data.writer %>" disabled>
+                </div>
+                    <button class="btn">수정</button>
+                </form>
+            </div>
         </div>
 </body>
 

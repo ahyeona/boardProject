@@ -1,3 +1,7 @@
-body {
+/* body {
     background-color: gray;
+} */
+
+.btn.a-btn {
+    width: 70px;
 }

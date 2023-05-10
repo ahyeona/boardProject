@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,24 @@
     <title>회원가입</title>
     <link rel="stylesheet" href="/users/signup.css">
 </head>
-<body>
 
-    <form method="post">
-        <label for="">이메일</label>
-        <input id="email" type="text" name="email">
-        <!-- <div id="emailCheckBtn">중복확인</div> -->
-        <!-- <a id="emailCheckBtn" href="/users/emailcheck">중복확인</a> -->
-        <label for="">비밀번호</label>
-        <input type="text" name="password">
-        <label for="">닉네임</label>
-        <!-- <a>중복확인</a> -->
-        <input type="text" name="nickname">
-        <button id="signupBtn">회원가입</button>
-    </form>
+<body>
+    <%- include('../../public/header') %>
+        <div class="main">
+            <form method="post">
+                <label for="">이메일</label>
+                <input id="email" type="text" name="email">
+                <!-- <div id="emailCheckBtn">중복확인</div> -->
+                <!-- <a id="emailCheckBtn" href="/users/emailcheck">중복확인</a> -->
+                <label for="">비밀번호</label>
+                <input type="text" name="password">
+                <label for="">닉네임</label>
+                <!-- <a>중복확인</a> -->
+                <input type="text" name="nickname">
+                <button id="signupBtn">회원가입</button>
+            </form>
+        </div>
 </body>
 <script src="/users/signup.js"></script>
+
 </html>

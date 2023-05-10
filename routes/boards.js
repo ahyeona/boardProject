@@ -7,9 +7,10 @@ const { render } = require("ejs");
 
 // 게시판 목록
 router.get("/", async (req, res) => {
+    const {user} = req.session;
     try {
         const data = await boards.ViewBoardAll(req, res);
-        res.render("boards/list", {data});
+        res.render("boards/list", {data, user});
     } catch (error) {
         console.log("게시판 목록 render error",error);
     }
@@ -78,9 +79,10 @@ router.post("/add_comment", async (req, res) => {
 
 // 수정 페이지
 router.get("/update/:id", async (req, res) => {
+    const {user} = req.session;
     try {
         const {data} = await boards.DetailBoard(req, res);
-        res.render("boards/update", {data});
+        res.render("boards/update", {data, user});
     } catch (error) {
         console.log("게시글 수정 render error",error);
     }

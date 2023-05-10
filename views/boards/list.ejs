@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판 목록</title>
 </head>
+
 <body>
-    <a href="/boards/insert">작성</a>
-    <table>
-        <tr>
-            <th>게시글번호</th>
-            <th>제목</th>
-            <th>작성일</th>
-            <th>작성자</th>
-        </tr>
+    <%- include('../../public/header') %>
 
-        <% data.forEach((el, index) => {%>
-            <tr>
-                <td><%= el.id %></td>
-                <td><a href="/boards/detail/<%= el.id %>"><%= el.title %></a></td>
-                <td><%= el.time %></td>
-                <td><%= el.writer %></td>
-            </tr>
+        <a href="/boards/insert">작성</a>
+        <div class="main">
+            <div class="main-item list">
+            <table>
+                <tr>
+                    <th>게시글번호</th>
+                    <th>제목</th>
+                    <th>작성일</th>
+                    <th>작성자</th>
+                </tr>
 
-        <% });  %>
-    </table>
+                <% data.forEach((el, index)=> {%>
+                    <tr>
+                        <td>
+                            <%= index+1 %>
+                        </td>
+                        <td><a href="/boards/detail/<%= el.id %>">
+                                <%= el.title %>
+                            </a></td>
+                        <td>
+                            <%= el.time %>
+                        </td>
+                        <td>
+                            <%= el.writer %>
+                        </td>
+                    </tr>
 
+                    <% }); %>
+            </table>
+        </div>
+        </div>
 </body>
+
 </html>

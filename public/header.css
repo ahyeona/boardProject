@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'KCCChassam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* .main-item .list {
+
+} */
+
+.main {
+    width: 80vw;
+    height: 60vh;
+    margin: 0 auto;
+    /* display: block; */
+    text-align: center;
+    /* display: flex;
+    justify-content: center; */
+    background-color: #001f00e1;
+    display: flex;
+    color: white;
+
+    font-family: 'KCCChassam';
+    font-size: 24px;
+
+    border: 30px solid #2e1d00e1;
+}
+
+.main-item {
+    margin: auto;
+
+}
+
+input {
+    background-color: #001f00e1;
+    border: none;
+    border-bottom: 3px solid white;
+    color: white;
+}
+
+table {
+    /* vertical-align: center; */
+    text-align: center;
+    width: 1000px;
+    margin: auto;
+    /* background-color: azure; */
+}
+
+table tr {
+    height: 36px;
+}
+
+td {
+    border-top: 1px solid #ddd;
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+}
+
+.header {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    color: black;
+}
+
+.header div {
+    margin-right: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.comment-div {
+    display: flex;
+}
+
+.comment-div div {
+    margin-right: 10px;
+}
+
+.comment-list {
+    margin-top: 20px;
+    height: 120px;
+    overflow: auto;
+}
+
+.f-left {
+    display: flex;
+}
+
+.f-left div {
+    margin-right: 10px;
+}
+
+.fs-small {
+    font-size : 20px;
+}
+
+.fs-big {
+    font-size : 30px;
+}
+
+.f-center {
+    text-align: left;
+}
+
+.title {
+    margin-bottom: 100px;
+}

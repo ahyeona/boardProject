@@ -10,74 +10,97 @@
 </head>
 
 <body>
-    <div><a href="/users/logout">로그아웃</a></div>
-    <div>
-        <div>
-            <!-- 제목 -->
-            <h1>
-                <%= data.title %>
-            </h1>
-        </div>
-        <div>
-            <!-- 내용 -->
-            <p>
-                <%= data.content %>
-            </p>
-        </div>
-        <div>
-            <!-- 작성자 -->
-            <p>
-                <%= data.writer %>
-            </p>
-            <!-- 작성시간 -->
-            <p>
-                <%= data.time %>
-            </p>
-            <!-- 좋아요 -->
-            <form action="/boards/likes" method="post">
-                <% if(user != null){ %>
-                <input type="hidden" name="user_id" value="<%= user.id %>">
-                <% } %>
-                <input type="hidden" name="board_id" value="<%= data.id %>">
-                <% if(user != null && likebool == true) { %>
-                    <button id="alreadyLikeBtn"><%= data.likes %></button>
-                    <% } else { %>
-                    <button id="likeBtn" ><%= data.likes %></button>
-                <% } %>
-            </form>
-        </div>
-        <div>
-            <% if(user != null && user.nickname == data.writer){ %>
-            <!-- 수정버튼 -->
-            <a href="/boards/update/<%= data.id %>">수정</a>
-            <!-- 삭제버튼 -->
-            <a href="/boards/delete/<%= data.id %>">삭제</a>
-            <% } %>
-        </div>
-        <div>
-            <!-- 댓글 등록 -->
-            <form action="/boards/add_comment" method="post">
-                <input type="hidden" name="board_id" value="<%= data.id %>">
-                <label for="">내용</label>
-                <input type="text" name="content">
-                <label for="">작성자</label>
-                <input type="text" name="name">
-                <button>댓글등록</button>
-            </form>
-        </div>
-        <div>
-            <% comment.forEach((el,index)=> { %>
-                <div>
-                    <!-- 댓글내용 -->
-                    <%= el.content %>
-                        <!-- 댓글작성자 -->
-                    <%= el.name %>
-                    <!-- 댓글작성시간 -->
-                    <%= el.time %>
+    <%- include('../../public/header') %>
+        <div class="main">
+            <div class="main-item">
+                <div class="title">
+                    <!-- 제목 -->
+                    <h1>
+                        <%= data.title %>
+                    </h1>
                 </div>
-                <% }); %>
+                <div class="f-left fs-small">
+                    <div>
+                        작성자
+                    </div>
+                    <!-- 작성자 -->
+                    <div>
+                        <%= data.writer %>
+                    </div>
+                    <div>
+                        작성시간
+                    </div>
+                    <!-- 작성시간 -->
+                    <div>
+                        <%= data.time %>
+                    </div>
+                </div>
+                <div class="fs-big f-center">
+                    <!-- 내용 -->
+                    <p>
+                        <%= data.content %>
+                    </p>
+                </div>
+
+
+                <div>
+                    <!-- 좋아요 -->
+                    <form action="/boards/likes" method="post">
+                        <% if(user !=null){ %>
+                            <input type="hidden" name="user_id" value="<%= user.id %>">
+                            <% } %>
+                                <input type="hidden" name="board_id" value="<%= data.id %>">
+                                <% if(user !=null && likebool==true) { %>
+                                    <button id="alreadyLikeBtn">
+                                        <%= data.likes %>
+                                    </button>
+                                    <% } else { %>
+                                        <button id="likeBtn">
+                                            <%= data.likes %>
+                                        </button>
+                                        <% } %>
+                    </form>
+                </div>
+                <div>
+                    <% if(user !=null && user.nickname==data.writer){ %>
+                        <!-- 수정버튼 -->
+                        <a href="/boards/update/<%= data.id %>">수정</a>
+                        <!-- 삭제버튼 -->
+                        <a href="/boards/delete/<%= data.id %>">삭제</a>
+                        <% } %>
+                </div>
+                <div>
+                    <!-- 댓글 등록 -->
+                    <form action="/boards/add_comment" method="post">
+                        <input type="hidden" name="board_id" value="<%= data.id %>">
+                        <label for="">내용</label>
+                        <input type="text" name="content">
+                        <label for="">작성자</label>
+                        <input type="text" name="name">
+                        <button>댓글등록</button>
+                    </form>
+                </div>
+                <div class="comment-list">
+                    <% comment.forEach((el,index)=> { %>
+                        <div class="comment-div">
+                            <div>
+                                <!-- 댓글내용 -->
+                                <%= el.content %>
+                            </div>
+                            <!-- 댓글작성자 -->
+                            <div>
+                                <%= el.name %>
+                            </div>
+                            <div>
+                                <!-- 댓글작성시간 -->
+                                <%= el.time %>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+            </div>
         </div>
-    </div>
 </body>
 <script src="/boards/detail.js"></script>
+
 </html>

@@ -5,8 +5,9 @@ const router = express.Router();
 const users = require("../controllers/users");
 
 router.get("/login", (req, res) => {
+    const {user} = req.session;
     try {
-        res.render("users/login");
+        res.render("users/login", {user});
     } catch (error) {
         console.log("login render error", error);
     }
@@ -35,8 +36,9 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/signup", async (req, res) => {
+    const {user} = req.session;
     try {
-        res.render("users/signup");
+        res.render("users/signup", {user});
 
     } catch (error) {
         console.log("signup render error", error);

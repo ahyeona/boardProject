@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="/header.css">
+<div class="header">
+    <% if(user) { %>
+        <div><a href="/users/logout">로그아웃</a></div>
+    <% } else { %>
+        <div><a href="/users/login">로그인</a></div>
+    <% } %>
+    <div><a href="/boards/">게시판</a></div>
+</div>

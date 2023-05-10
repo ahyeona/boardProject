@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,23 @@
     <title>로그인</title>
     <link rel="stylesheet" href="/users/login.css">
 </head>
+
 <body>
-    <form method="post">
-        <label for="">이메일</label>
-        <input type="text" name="email" >
-        <!-- <input type="text" name="email" required > -->
-        <label for="">비밀번호</label>
-        <!-- <input type="text" name="password" required > -->
-        <input type="text" name="password" >
-        <button id="loginBtn">로그인</button>
-    </form>
-    <a href="/users/signup">회원가입</a>
+    <%- include('../../public/header') %>
+
+        <div class="main">
+            <form method="post">
+                <label for="">이메일</label>
+                <input type="text" name="email">
+                <!-- <input type="text" name="email" required > -->
+                <label for="">비밀번호</label>
+                <!-- <input type="text" name="password" required > -->
+                <input type="text" name="password">
+                <button id="loginBtn">로그인</button>
+            </form>
+            <a href="/users/signup">회원가입</a>
+        </div>
 </body>
 <script src="/users/login.js"></script>
+
 </html>

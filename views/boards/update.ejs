@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 수정</title>
 </head>
+
 <body>
-    <form method="post">
-        <input type="hidden" name="id" value="<%= data.id %>">
-        <label for="">제목</label>
-        <input type="text" name="title"  value="<%= data.title %>">
-        <label for="">내용</label>
-        <input type="text" name="content"  value="<%= data.content %>">
-        <label for="">작성자</label>
-        <input type="text" name="writer" value="<%= data.writer %>" disabled>
-        <button>작성</button>
-    </form>
+    <%- include('../../public/header') %>
+        <div class="main">
+            <form method="post">
+                <input type="hidden" name="id" value="<%= data.id %>">
+                <label for="">제목</label>
+                <input type="text" name="title" value="<%= data.title %>">
+                <label for="">내용</label>
+                <input type="text" name="content" value="<%= data.content %>">
+                <label for="">작성자</label>
+                <input type="text" name="writer" value="<%= data.writer %>" disabled>
+                <button>작성</button>
+            </form>
+        </div>
 </body>
+
 </html>

@@ -15,17 +15,21 @@
         <div class="main">
             <div class="main-item">
                 <form method="post">
-                    <div>
-                        <label for="">이메일</label>
-                        <input type="text" name="email" required>
+                    <div class="flex">
+                        <div>
+                            <div>
+                                <label for="">이메일</label>
+                                <input type="text" name="email" required>
+                            </div>
+                            <!-- <input type="text" name="email" required > -->
+                            <div>
+                                <label for="">비밀번호</label>
+                                <!-- <input type="text" name="password" required > -->
+                                <input type="text" name="password" required>
+                            </div>
+                        </div>
+                        <button id="loginBtn" class="btn">로그인</button>
                     </div>
-                    <!-- <input type="text" name="email" required > -->
-                    <div>
-                        <label for="">비밀번호</label>
-                        <!-- <input type="text" name="password" required > -->
-                        <input type="text" name="password" required>
-                    </div>
-                    <button id="loginBtn" class="btn">로그인</button>
                 </form>
                 <a href="/users/signup" class="btn a-btn">회원가입</a>
             </div>

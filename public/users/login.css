@@ -5,3 +5,8 @@
 .btn.a-btn {
     width: 70px;
 }
+
+#loginBtn {
+    margin: auto 0;
+    /* vertical-align: middle; */
+}

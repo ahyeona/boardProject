@@ -41,6 +41,13 @@
                         <%= data.content %>
                     </p>
                 </div>
+                <% if(data.img) { %>
+                <div class="fs-big f-center">
+                    <!-- 이미지 -->
+                    <img class="d-img" src="/images/<%= data.img %>">
+                    </img>
+                </div>
+                <% } %>
 
 
                 <div>

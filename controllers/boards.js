@@ -36,7 +36,11 @@ const boardC = {
     InsertBoard : async (req, res) => {
         const {title, content, writer} = req.body;
         try {
-            await boards.insertBoard(title, content, writer);
+            const board_id = await boards.insertBoard(title, content, writer);
+            if (req.file) {
+                const filepath = req.file.filename;
+                await boards.insertImg(board_id, filepath);
+            }
         } catch (error) {
             console.log("InsertBoard controller error", error);
         }
@@ -73,9 +77,20 @@ const boardC = {
     },
 
     UpdateBoard : async (req, res) => {
-        const {id, title, content} = req.body;
+        const {id, title, content, img} = req.body;
         try {
-            await boards.updateBoard(id, title, content);
+            if (req.file) {
+                if (img) {
+                    // 기존 이미지파일 삭제
+                    await boards.deleteImg(img);
+                }
+                const filepath = req.file.filename;
+                await boards.updateBoard(id, title, content, filepath);
+
+            } else {
+                await boards.updateBoard(id, title, content);
+            }
+
             return id;
         } catch (error) {
             console.log("UpdateBoard controller error", error);
@@ -85,6 +100,10 @@ const boardC = {
     DeleteBoard : async (req, res) => {
         const {id} = req.params;
         try {
+            // 이미지 삭제
+            const filepath = await boards.getfilename(id);
+            await boards.deleteImg(filepath);
+
             await boards.deleteBoard(id);
         } catch (error) {
             console.log("DeleteBoard controller error", error);

@@ -25,6 +25,9 @@ app.use("/",express.static(path.join(__dirname, "public")));
 app.use("/users", express.static(path.join(__dirname, "public", "users")));
 app.use("/boards", express.static(path.join(__dirname, "public", "boards")));
 
+// ---------------
+app.use('/images',express.static(path.join(__dirname,"public",'image')));
+
 app.use("/users", userRoute);
 app.use("/boards", boardRoute);
 

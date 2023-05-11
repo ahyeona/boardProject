@@ -13,14 +13,17 @@
 
         <div class="main">
             <div class="main-item">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     <div>
-                        <label for="">제목</label>
-                        <input type="text" name="title" required>
+                        <label class="f-left">제목</label>
+                        <input class="big-insert" type="text" name="title" required>
                     </div>
                     <div>
-                        <label for="">내용</label>
-                        <textarea type="text" name="content" required></textarea>
+                        <label class="f-left">내용</label>
+                        <textarea class="big-insert big-ta" type="text" name="content" required></textarea>
+                    </div>
+                    <div>
+                        <input type="file" name="img" accept="image/*">
                     </div>
                     <div>
                         <label for="">작성자</label>

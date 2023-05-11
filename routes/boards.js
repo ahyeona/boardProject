@@ -1,6 +1,24 @@
 const express = require("express");
-
+const path = require("path");
 const router = express.Router();
+
+const multer = require('multer');
+const fs = require('fs');
+
+const imgdirpath = path.join(__dirname, '..', "public", "image");
+
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, imgdirpath);
+    },
+    filename: (req, file, callback) => {
+        const ext = path.extname(file.originalname);
+        callback(null, Date.now()+ext);
+    }
+})
+
+const upload = multer({ storage:storage });
+
 
 const boards = require("../controllers/boards");
 const { render } = require("ejs");
@@ -43,7 +61,7 @@ router.get("/insert", async (req, res) => {
 });
 
 // 게시글 등록
-router.post("/insert", async (req, res) => {
+router.post("/insert", upload.single("img"),async (req, res) => {
     try {
         await boards.InsertBoard(req, res);
         res.redirect("/boards");
@@ -89,7 +107,7 @@ router.get("/update/:id", async (req, res) => {
 });
 
 // 수정
-router.post("/update/:id", async (req, res) => {
+router.post("/update/:id", upload.single("img"), async (req, res) => {
     try {
         const board_id = await boards.UpdateBoard(req, res);
         res.redirect("/boards/detail/"+board_id);

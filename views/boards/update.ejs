@@ -12,21 +12,29 @@
     <%- include('../header') %>
         <div class="main">
             <div class="main-item">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<%= data.id %>">
                     <div>
-                    <label for="">제목</label>
-                    <input type="text" name="title" value="<%= data.title %>" required>
-                </div>
-            <div>
-                    <label for="">내용</label>
-                    <textarea name="content" required><%= data.content %></textarea>
-                <div>
-                <div>
-                    <label for="">작성자</label>
-                    <input type="text" name="writer" value="<%= data.writer %>" disabled>
-                </div>
-                    <button class="btn">수정</button>
+                        <label class="f-left">제목</label>
+                        <input class="big-insert" type="text" name="title" value="<%= data.title %>" required>
+                    </div>
+                    <div>
+                        <label class="f-left">내용</label>
+                        <textarea class="big-insert big-ta" name="content" required><%= data.content %></textarea>
+                        <div>
+                            <label for=""><%= data.img %></label>
+                            <input type="file" name="img" accept="image/*">
+                        </div>
+                        <div>
+                            <div>
+                                <label for="">작성자</label>
+                                <input type="text" name="writer" value="<%= data.writer %>" disabled>
+                            </div>
+                            <input type="hidden" name="img" value="<%= data.img %>">
+
+                            <button class="btn">수정</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
